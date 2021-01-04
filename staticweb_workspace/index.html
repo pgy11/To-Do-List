@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+    <title>Todo practice</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: #27292d;
+            color: #fff;
+        }
+
+        body #app {
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 30px;
+        }
+
+        body #app h1 {
+            font-weight: 700;
+            font-size: 28px;
+            text-align: center;
+        }
+
+        body #app form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        body #app form label {
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        body #app form input {
+            background-color: transparent;
+            border: 2px solid hsla(0, 0%, 100%, .35);
+            color: inherit;
+        }
+
+        body #app form button,
+        body #app form input {
+            height: 48px;
+            box-shadow: none;
+            outline: none;
+            padding-left: 12px;
+            padding-right: 12px;
+            border-radius: 6px;
+            font-size: 18px;
+            margin-top: 6px;
+            margin-bottom: 12px;
+        }
+
+        body #app button {
+            cursor: pointer;
+            background-color: #a0a4d9;
+            border: 1px solid #a0a4d9;
+            color: #1f2023;
+            font-weight: 700;
+            outline: none;
+            border-radius: 6px;
+        }
+
+        body #app h2 {
+            font-size: 22px;
+            border-bottom: 2px solid hsla(0, 0%, 100%, .35);
+            padding-bottom: 6px;
+        }
+
+        body #app ul {
+            padding: 10px;
+        }
+
+        body #app ul li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 2px solid hsla(0, 0%, 100%, .35);
+            padding: 12px 24px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+        }
+
+        body #app ul li span {
+            cursor: pointer;
+        }
+
+        body #app ul li button {
+            font-size: 12px;
+            padding: 6px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Todo list</h1>
+        <form>
+            <label>Todo</label>
+            <input name="todo" autocomplete="off">
+            <button>Add the item</button>
+        </form>
+        <h2>Todo list</h2>
+        <ul>
+            <li>
+                <span>Study HTML</span>
+                <button>Delete</button>
+            </li>
+            <li>
+                <span>Study CSS</span>
+                <button>Delete</button>
+            </li>
+            <li>
+                <span>Study JS</span>
+                <button>Delete</button>
+            </li>
+            <li>
+                <span>Study Python</span>
+                <button>Delete</button>
+            </li>
+            <li>
+                <span>Study CS</span>
+                <button>Delete</button>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
