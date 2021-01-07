@@ -1,8 +1,24 @@
 # To do list 구현하기
 
-- HTML, CSS, JS, Django, Mongo DB를 이용하여 구현한다.
+<<<<<<< HEAD
+- HTML, CSS, JavaScript, Django를 이용하여 구현한다.
 
-- Vue.js example 홈페이지에서 제공하는 ToDo app의 UI를 사용했다.
-  - [링크](https://vuejsexamples.com/a-simple-todo-application-using-vue-3-composition-api/)
-  - 크롬 개발자 도구 이용
+----
+
+## 2021.01.04
+
+- HTML, CSS 구현완료
+
+---
+
+<br>
+
+## 2021.01.07
+
+- JavaScript 구현완료
+
+=======
+- HTML, CSS, JS, Django, Mongo DB를 이용하여 구현한다.
+>>>>>>> 4ae1a4118017ea3bbe96bcd0c9d0f0f395eaa422
+
 

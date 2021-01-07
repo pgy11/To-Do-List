@@ -3,135 +3,155 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
-    <title>Todo practice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    </link>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    </link>
+    <title>일정관리</title>
+    <script>
+        let todos = [
+            { todoNum: 1, title: '일정1' },
+            { todoNum: 2, title: '일정2' },
+            { todoNum: 3, title: '일정3' },
+            { todoNum: 4, title: '일정4' },
+            { todoNum: 5, title: '일정5' }
+        ];
+    </script>
+    <script src='./js/todo.js'></script>
     <style>
         body {
-            margin: 0;
-            padding: 0;
-            font-family: Helvetica, Arial, sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            background-color: #27292d;
-            color: #fff;
-        }
-
-        body #app {
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 30px;
-        }
-
-        body #app h1 {
-            font-weight: 700;
-            font-size: 28px;
             text-align: center;
+            background-color: #f6f6f8;
         }
 
-        body #app form {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
+        h1 {
+            color: #2f3b52;
+            font-weight: 900;
+            margin: 2.5rem 0 1.5rem;
         }
 
-        body #app form label {
-            font-size: 14px;
-            font-weight: 700;
+        .inputBox {
+            background: #fff;
+            height: 50px;
+            line-height: 50px;
+            border-radius: 5px;
         }
 
-        body #app form input {
-            background-color: transparent;
-            border: 2px solid hsla(0, 0%, 100%, .35);
-            color: inherit;
+        .inputBox input {
+            border-style: none;
+            font-size: .9rem;
         }
 
-        body #app form button,
-        body #app form input {
-            height: 48px;
-            box-shadow: none;
-            outline: none;
-            padding-left: 12px;
-            padding-right: 12px;
-            border-radius: 6px;
-            font-size: 18px;
-            margin-top: 6px;
-            margin-bottom: 12px;
+        .shadow {
+            box-shadow: 5px 10px 10px rgba(0, 0, 0, .03);
         }
 
-        body #app button {
-            cursor: pointer;
-            background-color: #a0a4d9;
-            border: 1px solid #a0a4d9;
-            color: #1f2023;
-            font-weight: 700;
-            outline: none;
-            border-radius: 6px;
+        .addContainer {
+            float: right;
+            background: linear-gradient(90deg, #6478fb, #8763fb);
+            display: inline-block;
+            width: 3rem;
+            border-radius: 0 5px 5px 0;
         }
 
-        body #app h2 {
-            font-size: 22px;
-            border-bottom: 2px solid hsla(0, 0%, 100%, .35);
-            padding-bottom: 6px;
+        .addBtn {
+            color: #fff;
+            vertical-align: middle;
         }
 
-        body #app ul {
-            padding: 10px;
-        }
-
-        body #app ul li {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border: 2px solid hsla(0, 0%, 100%, .35);
-            padding: 12px 24px;
-            border-radius: 6px;
-            margin-bottom: 12px;
-        }
-
-        body #app ul li span {
-            cursor: pointer;
-        }
-
-        body #app ul li button {
-            font-size: 12px;
-            padding: 6px;
+        .fa-plus:before {
+            content: "\f067";
         }
     </style>
+    <style>
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 0;
+            text-align: left;
+        }
+
+        li {
+            display: flex;
+            min-height: 50px;
+            height: 50px;
+            line-height: 50px;
+            margin: .5rem 0;
+            padding: 0 .9rem;
+            background: #fff;
+            border-radius: 5px;
+        }
+
+        .checkBtn {
+            line-height: 45px;
+            color: #62acde;
+            margin-right: 5px;
+        }
+
+        .removeBtn {
+            margin-left: auto;
+            color: #de4343;
+        }
+
+        .fa {
+            display: inline-block;
+            font: normal normal normal 14px/1 FontAwesome;
+            font-size: inherit;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .fa-trash-o:before {
+            content: "\f014";
+        }
+    </style>
+    <style>
+        .clearAllBtn {
+            color: #e20303;
+            display: block;
+        }
+
+        .clearAllContainer {
+            width: 8.5rem;
+            height: 50px;
+            line-height: 50px;
+            background-color: #fff;
+            border-radius: 5px;
+            margin: 0 auto;
+        }
+    </style>
+
 </head>
 
 <body>
-    <div id="app">
-        <h1>Todo list</h1>
+    <!-- title-->
+    <header>
+        <h1>TODO It!</h1>
+    </header>
+    <!-- todo input-->
+    <div class="inputBox shadow">
         <form>
-            <label>Todo</label>
-            <input name="todo" autocomplete="off">
-            <button>Add the item</button>
+            <input id = 'todoInput' type="text" placeholder="일정을 입력하세요" />
+            <span class="addContainer" onclick='todoInputHandler()'>
+                <i aria-hidden="true" class="addBtn fa fa-plus">
+                </i>
+            </span>
         </form>
-        <h2>Todo list</h2>
-        <ul>
-            <li>
-                <span>Study HTML</span>
-                <button>Delete</button>
-            </li>
-            <li>
-                <span>Study CSS</span>
-                <button>Delete</button>
-            </li>
-            <li>
-                <span>Study JS</span>
-                <button>Delete</button>
-            </li>
-            <li>
-                <span>Study Python</span>
-                <button>Delete</button>
-            </li>
-            <li>
-                <span>Study CS</span>
-                <button>Delete</button>
-            </li>
+
+    </div>
+    <!-- todo list-->
+    <section>
+        <ul id='todoList'>
+            <script>
+                displayList();                
+            </script>
         </ul>
+    </section>
+    <!-- clear all-->
+    <div class="clearAllContainer">
+        <span class="clearAllBtn" onClick = 'todoClear()'>Clear All</span>
     </div>
 </body>
 
