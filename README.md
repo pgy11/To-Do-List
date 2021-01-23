@@ -12,4 +12,10 @@
 
 - JavaScript implemented.
 
+---
+
+## 2021.01.15
+
+- JavaScript is not used.
+- Django is used.
 
