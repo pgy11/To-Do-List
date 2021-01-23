@@ -18,4 +18,4 @@
 
 - JavaScript is not used.
 - Django is used.
-
+- Implementation of To dos app is finished.
